@@ -73,3 +73,11 @@ Send a pull request to this repository with your solution. The title of your pul
 #### Why not one billion?
 
 This challenge was inspired by the [1 billion row challenge in Java](https://github.com/gunnarmorling/1brc). The reason we're using only 100 million rows is because this version has a lot more complexity compared to the Java version (date parsing, JSON encoding, array sorting). To prevent the benchmark server from being overloaded, we're limiting the number of rows to 100 million.
+
+#### How to ensure fair results?
+
+Each submission will be manually verified before its benchmark is run on the benchmark server. We'll also only ever run one single submission at a time to prevent any bias in the results. Additionally, we'll use a consistent environment for all submissions to ensure that the results are comparable.
+
+#### What kind of server is used for the benchmark?
+
+TODO
