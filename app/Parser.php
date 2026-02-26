@@ -9,9 +9,12 @@ final class Parser
     {
         $inputFile = fopen($inputPath, 'r');
         while (($line = fgets($inputFile)) !== false) {
-            preg_match('/https:\/\/stitcher\.io(?<path>[^,]+),(?<date>[^T]+)/' ,$line, $match);
-            $curr = $this->map[$match['path']][$match['date']] ?? 0;
-            $this->map[$match['path']][$match['date']] = $curr + 1;
+            $line = explode(',', $line);
+            $path = substr($line[0], 19);
+            $date = substr($line[1], 0, 10);
+
+            $curr = $this->map[$path][$date] ?? 0;
+            $this->map[$path][$date] = $curr + 1;
         }
         fclose($inputFile);
 
