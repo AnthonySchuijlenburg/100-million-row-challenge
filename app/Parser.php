@@ -13,14 +13,10 @@ final class Parser
         $inputFile = fopen($inputPath, 'r');
         while (($line = fgets($inputFile, 128)) !== false) {
             $commaPos = strpos($line, ',');
-            [$path, $date] = explode(
-                ',',
-                substr(
-                    $line,
-                    self::PREFIX_LENGTH,
-                    $commaPos + self::DATE_LENGTH - self::PREFIX_LENGTH
-                )
-            );
+            [$path, $date] = [
+                substr($line,19,$commaPos - 19),
+                substr($line,$commaPos + 1,10)
+            ];
 
             $date = str_replace('-', '', $date);
             $this->map[$path][$date] = ($this->map[$path][$date] ?? 0) + 1;
@@ -32,7 +28,11 @@ final class Parser
 
             $modified = [];
             foreach ($line as $key => $value) {
-                $modified[substr($key, 0, 4) . '-' . substr($key, 4, 2) . '-' . substr($key, 6, 2)] = $value;
+                $modified[
+                    substr($key, 0, 4) . '-' .
+                    substr($key, 4, 2) . '-' .
+                    substr($key, 6, 2)
+                ] = $value;
             }
             $line = $modified;
         }
