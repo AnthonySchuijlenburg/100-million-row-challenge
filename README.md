@@ -128,7 +128,17 @@ All entries must be submitted before March 16, 2026 (so you have until March 15,
 
 #### Where can I see the results?
 
-The benchmark results of each run are stored in [leaderboard.csv](./leaderboard.csv). 
+The benchmark results of each run are stored in [leaderboard.csv](./leaderboard.csv) and [leaderboard-single-thread.csv](./leaderboard-single-thread.csv).
+
+#### What am I allowed to do and what not?
+
+You're encouraged to think outside the box 🙂 That being said: 
+
+- your solution must validate against the real data set (no altering allowed)
+- it must be written only in PHP
+- it may not use tools outside of PHP
+- you may not access the internet from within your script
+- your script may only work within the project's directory
 
 #### What kind of server is used for the benchmark?
 
