@@ -4,7 +4,7 @@ namespace App;
 
 final class Parser
 {
-    private const int PREFIX_LENGTH = 25;
+    private const int PREFIX_LENGTH = 19;
     private const int DATE_LENGTH = 11;
 
     private array $map = [];
@@ -22,7 +22,6 @@ final class Parser
                 )
             );
 
-            $path = '/blog/'.$path;
             $date = str_replace('-', '', $date);
             $this->map[$path][$date] = ($this->map[$path][$date] ?? 0) + 1;
         }
